@@ -26,7 +26,6 @@ jobs:
       - name: Deploy the code
         uses: burnett01/rsync-deployments@5.1
         with:
-          path: src/
           remote_path: /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USERNAME }}
