@@ -27,7 +27,7 @@ jobs:
         uses: burnett01/rsync-deployments@5.1
         with:
           switches: -cvzr --delete --exclude-from=.distignore --chmod=D775,F664
-          path: ${{ env.GITHUB_WORKSPACE }}
+          path: ./
           remote_path: /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USERNAME }}
