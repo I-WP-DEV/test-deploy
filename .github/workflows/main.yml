@@ -22,15 +22,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Connect to server
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: appleboy/ssh-action@v0.1.2
 
-        with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
+      - name: Deploy the code
+          uses: burnett01/rsync-deployments@5.1
+          with:
+            switches: -cvzr --delete --exclude-from=.distignore --chmod=D775,F664
+            path: ${{ env.GITHUB_WORKSPACE }}
+            remote_path: /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins
+            remote_host: ${{ secrets.SSH_HOST }}
+            remote_user: ${{ secrets.SSH_USERNAME }}
+            remote_key: ${{ secrets.SSH_KEY }}
 
-        script: |
-          cd /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins
-          git clone git@github.com:I-WP-DEV/test-deploy.git
