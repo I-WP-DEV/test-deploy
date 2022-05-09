@@ -21,5 +21,3 @@
 /.git
 /.github
 /.idea
-/node_modules
-/src/js
