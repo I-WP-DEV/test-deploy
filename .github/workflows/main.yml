@@ -26,8 +26,7 @@ jobs:
       - name: Deploy the code
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -cvzr --delete --exclude-from=.distignore --chmod=D775,F664
-          remote_path: /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins/
+          remote_path: /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins/test-deploy/
           remote_host: 161.35.30.162
           remote_user: ${{ secrets.SSH_USERNAME }}
           remote_key: ${{ secrets.SSH_KEY }}
