@@ -8,16 +8,8 @@
 /.gitignore
 /.phpcs.cache
 /Thumbs.db
-/WordPress.xml
-/auth.json
-/composer.json
-/composer.lock
-/package.json
-/phpcs.xml
-/webpack.config.js
-/yarn.lock
 
 # Directories
 /.git
 /.github
-/.idea
+
