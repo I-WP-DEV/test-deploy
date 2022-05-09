@@ -19,3 +19,5 @@ jobs:
           REMOTE_PORT: 22
           SOURCE: "./"
           TARGET: "/var/www/html/stages.i-wp-dev.com/public/wp-content/plugins/test-deploy/"
+      - name: change owner
+        run: chown -R www-data:www-data /var/www/html/stages.i-wp-dev.com/public/wp-content/plugins/test-deploy/
